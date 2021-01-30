@@ -124,7 +124,7 @@ class HessamAdminController extends Controller
             Helpers::flash_message("Post already exists - try to change the slug for this language");
         }else {
             $new_blog_post->is_published = $request['is_published'];
-            $new_blog_post->user_id = \Auth::user()->id;
+            $new_blog_post->user_id = auth()->guard('admin')->user()->id;
             $new_blog_post->save();
 
             $translation->title = $request['title'];
@@ -182,7 +182,7 @@ class HessamAdminController extends Controller
                 Helpers::flash_message("Post already exists - try to change the slug for this language");
             }else{
                 $new_blog_post->is_published = $request['is_published'];
-                $new_blog_post->user_id = \Auth::user()->id;
+                $new_blog_post->user_id = auth()->guard('admin')->user()->id;
                 $new_blog_post->save();
 
                 $translation->title = $request['title'];
@@ -323,7 +323,7 @@ class HessamAdminController extends Controller
             Helpers::flash_message("Post already exists - try to change the slug for this language");
         }else {
             $new_blog_post->is_published = $request['is_published'];
-            $new_blog_post->user_id = \Auth::user()->id;
+            $new_blog_post->user_id = auth()->guard('admin')->user()->id;
             $new_blog_post->save();
 
             $translation->title = $request['title'];

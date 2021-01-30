@@ -1,4 +1,4 @@
-@if(\Auth::check() && \Auth::user()->canManageHessamCMSPosts())
+@if(auth()->guard('admin')->check() && auth()->guard('admin')->user()->canManageHessamCMSPosts())
     <a href="{{$post->edit_url()}}" class="btn btn-outline-secondary btn-sm pull-right float-right">Edit
         Post</a>
 @endif

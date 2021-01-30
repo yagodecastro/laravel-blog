@@ -76,7 +76,7 @@ class HessamRssFeedController extends Controller
     {
 
         // if a logged in user views the RSS feed it will get cached, and if they are an admin user then it'll show all posts (even if it is not set as published)
-        $user_or_guest = \Auth::check() ? \Auth::user()->id : 'guest';
+        $user_or_guest = auth()->guard('customer')->check() ? auth()->guard('customer')->id : 'guest';
 
         $feed->setCache(
             config("hessamcms.rssfeed.cache_in_minutes", 60),

@@ -84,8 +84,8 @@ class HessamCommentWriterController extends Controller
         if (config("hessamcms.comments.ask_for_author_website")) {
             $new_comment->author_email = $request->get('author_email');
         }
-        if (config("hessamcms.comments.save_user_id_if_logged_in", true) && Auth::check()) {
-            $new_comment->user_id = Auth::user()->id;
+        if (config("hessamcms.comments.save_user_id_if_logged_in", true) && auth()->guard('admin')->check()) {
+            $new_comment->user_id = auth()->guard('admin')->user()->id;
         }
 
         $new_comment->approved = config("hessamcms.comments.auto_approve_comments", true) ? true : false;

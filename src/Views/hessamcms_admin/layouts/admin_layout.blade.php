@@ -65,7 +65,7 @@
                     <li class="nav-item ">
                         <a id="" class="nav-link " href="#" role="button"
                            aria-haspopup="true" aria-expanded="false" >
-                            Logged in as {{ Auth::user()->name }}
+                            Logged in as {{ auth()->guard('admin')->user()->name }}
                         </a>
                     </li>
                     <li class="nav-item ">

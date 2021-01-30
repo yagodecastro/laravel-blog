@@ -18,6 +18,6 @@ abstract class BaseRequest extends FormRequest implements BaseRequestInterface
      */
     public function authorize()
     {
-        return \Auth::check() && \Auth::user()->canManageHessamCMSPosts();
+        return auth()->guard('admin')->check() && auth()->guard('admin')->user()->canManageHessamCMSPosts();
     }
 }

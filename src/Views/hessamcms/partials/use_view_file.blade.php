@@ -8,7 +8,7 @@
 
     {{--uh oh! the view file wasn't there. Show a detailed error if user is logged in and can manage the blog, otherwise show generic error.--}}
 
-    @if(\Auth::check() && \Auth::user()->canManageHessamCMSPosts())
+    @if(auth()->guard('admin')->check() && auth()->guard('admin')->user()->canManageHessamCMSPosts())
          {{--is logged in + canManageHessamCMSPosts() == true, so show a detailed error--}}
         <div class='alert alert-danger'>Custom blog post blade view file
                         (<code>{{$post->full_view_file_path()}}</code>) not found. <a

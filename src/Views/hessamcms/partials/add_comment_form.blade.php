@@ -21,7 +21,7 @@
         <div class='container-fluid'>
             <div class='row'>
 
-                @if(config("hessamcms.comments.save_user_id_if_logged_in", true) == false || !\Auth::check())
+                @if(config("hessamcms.comments.save_user_id_if_logged_in", true) == false || !auth()->guard('admin')->check())
 
                     <div class='col'>
                         <div class="form-group ">

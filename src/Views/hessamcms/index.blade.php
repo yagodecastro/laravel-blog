@@ -7,7 +7,7 @@
 @section("content")
 
     <div class='col-sm-12 hessamcms_container'>
-        @if(\Auth::check() && \Auth::user()->canManageHessamCMSPosts())
+        @if(auth()->guard('admin')->canManageHessamCMSPosts())
             <div class="text-center">
                 <p class='mb-1'>You are logged in as a blog admin user.
                     <br>

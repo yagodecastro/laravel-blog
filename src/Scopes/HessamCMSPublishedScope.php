@@ -19,7 +19,7 @@ class HessamCMSPublishedScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        if (!\Auth::check() || ! \Auth::user()->canManageHessamCMSPosts()) {
+        if (!auth()->guard('admin')->check() || ! auth()->guard('admin')->user()->canManageHessamCMSPosts()) {
             // user is a guest, or if logged in they can't manage blog posts
             $builder->where("is_published", true);
             $builder->where("posted_at", "<=", Carbon::now());

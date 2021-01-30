@@ -117,7 +117,7 @@ class HessamImageUploadController extends Controller
         HessamUploadedPhoto::create([
             'image_title' => $request->get("image_title"),
             'source' => "ImageUpload",
-            'uploader_id' => optional(\Auth::user())->id,
+            'uploader_id' => optional(auth()->guard('admin'))->id,
             'uploaded_images' => $uploaded_image_details,
         ]);
 
